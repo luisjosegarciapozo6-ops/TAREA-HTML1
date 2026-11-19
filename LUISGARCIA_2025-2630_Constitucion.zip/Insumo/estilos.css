@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333333;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+}
+
+h2 {
+    font-size: 28px;
+    color: #002d62;
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: 20px;
+    color: #ce1126;
+    font-weight: bold;
+}
+
+p, ul {
+    font-size: 16px;
+}
+
+a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#encabezado {
+    background-color: #002d62;
+}
+
+#menu {
+    background-color: #ce1126;
+    text-align: center;
+}
+
+#historia {
+    background-color: #ffffff;
+}
+
+#importancia {
+    background-color: #eaf0f8;
+}
+
+#celebracion {
+    background-color: #ffffff;
+}
+
+#datos {
+    background-color: #fbeaec;
+}
+
+#pie {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+}
+
+.subtitulo {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.fecha {
+    color: #ce1126;
+    font-weight: bold;
+}
+
+.resaltado {
+    background-color: #fff3a0;
+    font-weight: bold;
+}
+
+.tarjeta {
+    background-color: #ffffff;
+}
+
+.nota {
+    font-size: 12px;
+    color: #cccccc;
+}
