@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum Vitae - Luis José García Pozo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #e2e8f0;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            padding: 30px 15px;
+            line-height: 1.6;
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 32% 68%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* COLUMNA IZQUIERDA */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 35px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+        }
+
+        .profile-pic-container {
+            width: 165px;
+            height: 165px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background-color: #ffffff;
+        }
+
+        /* Recorta las franjas negras y centra tu rostro en el círculo */
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 48%;
+            transform: scale(1.38);
+        }
+
+        .sidebar h2 {
+            font-size: 1.02rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #93c5fd;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            font-size: 0.86rem;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e2e8f0;
+            word-break: break-word;
+        }
+
+        .contact-list i {
+            color: var(--accent-color);
+            width: 18px;
+            text-align: center;
+            font-size: 0.98rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.83rem;
+            color: #f1f5f9;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.78rem;
+        }
+
+        /* COLUMNA DERECHA */
+        .main-content {
+            padding: 38px 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .header-title {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 18px;
+        }
+
+        .header-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .header-title .role {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+        }
+
+        .profile-summary {
+            font-size: 0.92rem;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--accent-color);
+            margin-bottom: 16px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: var(--primary-color);
+        }
+
+        .item-date {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            background-color: #eff6ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .item-subtitle {
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .item-description {
+            font-size: 0.89rem;
+            color: var(--text-dark);
+        }
+
+        .item-description ul {
+            margin-left: 18px;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+            <div class="profile-pic-container">
+                <!-- Guarda tu imagen en Downloads con el nombre foto.jpg o foto.jpeg -->
+                <img src="foto.jpg" onerror="this.onerror=null; this.src='foto.jpeg';" alt="Foto de Luis José García Pozo">
+            </div>
+
+            <div>
+                <h2>Contacto</h2>
+                <ul class="contact-list">
+                    <li><i class="fas fa-phone"></i> +1 (809) 000-0000</li>
+                    <li><i class="fas fa-envelope"></i> tu.correo@email.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> San Pedro de Macorís, RD</li>
+                    <li><i class="fab fa-instagram"></i> @luisgarcia_09_</li>
+                    <li><i class="fas fa-video"></i> Luis García DRONE</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Software & Herramientas</h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Photoshop / Lightroom</span><span>95%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Illustrator / InDesign</span><span>90%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Edición Video (CapCut / InShot)</span><span>90%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>HTML5 / CSS3 (VS Code)</span><span>85%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Modelado 3D (Autodesk Maya)</span><span>80%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2>Especialidades</h2>
+                <div class="tags">
+                    <span class="tag">Fotografía Deportiva</span>
+                    <span class="tag">Operación de Dron</span>
+                    <span class="tag">Identidad Visual</span>
+                    <span class="tag">Diseño Editorial</span>
+                    <span class="tag">Diseño Web</span>
+                    <span class="tag">Modelado 3D</span>
+                    <span class="tag">Postproducción</span>
+                </div>
+            </div>
+
+            <div>
+                <h2>Idiomas</h2>
+                <ul class="contact-list">
+                    <li><i class="fas fa-language"></i> Español — Nativo</li>
+                    <li><i class="fas fa-language"></i> Inglés — Intermedio</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            <header class="header-title">
+                <h1>LUIS JOSÉ GARCÍA POZO</h1>
+                <div class="role">Productor Multimedia, Fotógrafo & Operador de Dron</div>
+            </header>
+
+            <section>
+                <h2 class="section-title"><i class="fas fa-user"></i> Perfil Profesional</h2>
+                <p class="profile-summary">
+                    Estudiante de Tecnología en Multimedia en el ITLA y creador audiovisual independiente con experiencia en fotografía deportiva, cinematografía aérea con dron, diseño gráfico editorial, modelado 3D y desarrollo web front-end. Enfocado en transformar conceptos visuales en piezas digitales de alto impacto con entregas ágiles en postproducción y atención al detalle estético.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Experiencia Multimedia</h2>
+                
+                <div class="timeline-item">
+                    <div class="item-header">
+                        <span class="item-title">Fotógrafo, Videógrafo & Piloto de Dron Independiente</span>
+                        <span class="item-date">Actualidad</span>
+                    </div>
+                    <div class="item-subtitle">Luis García DRONE — San Pedro de Macorís, Santo Domingo y La Romana</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Cobertura fotográfica y audiovisual en eventos al aire libre, deportes (béisbol) y locaciones turísticas utilizando cámaras Canon (R10 / EOS Rebel, lente 70-200mm) y dron DJI Mini 3 Pro.</li>
+                            <li>Revelado digital, corrección de color y montaje audiovisual con tiempos de entrega rápida (24 a 48 horas).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title"><i class="fas fa-photo-video"></i> Proyectos Destacados</h2>
+                
+                <div class="timeline-item">
+                    <div class="item-header">
+                        <span class="item-title">Campaña Visual "La Misma Meta" — Juegos Centroamericanos 2026</span>
+                        <span class="item-date">2026</span>
+                    </div>
+                    <div class="item-description">
+                        Desarrollo de sistema de señalética iconográfica inclusiva, infografías y afiches promocionales para los XXV Juegos Centroamericanos y del Caribe Santo Domingo 2026.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="item-header">
+                        <span class="item-title">Identidad de Marca y Plan de Marketing — VIKING</span>
+                        <span class="item-date">2026</span>
+                    </div>
+                    <div class="item-description">
+                        Creación integral de branding, línea gráfica y estrategia visual para marca de ropa deportiva.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formación Académica</h2>
+                
+                <div class="timeline-item">
+                    <div class="item-header">
+                        <span class="item-title">Tecnología en Multimedia (4.º Cuatrimestre)</span>
+                        <span class="item-date">En curso</span>
+                    </div>
+                    <div class="item-subtitle">Instituto Tecnológico de Las Américas (ITLA)</div>
+                    <div class="item-description">
+                        Formación práctica en diseño web (HTML/CSS), modelado 3D (Maya), autoedición editorial (InDesign), narrativa cinematográfica e inglés técnico.
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
